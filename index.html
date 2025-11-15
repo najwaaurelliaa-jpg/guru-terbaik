@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html lang="en">      
+<head>    
+    <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>Mathience.49</title>    
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <link    
+      rel="stylesheet"    
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"    
+    />    
+</head>    
+
+<body    
+    style="    
+      background-image: url(https://i.ibb.co.com/Qvs8LGgh/Gambar-Whats-App-2025-11-13-pukul-23-02-38-50fa98a1.jpg);    
+      background-size: cover; 
+      background-position: center;
+
+    "    
+    class="flex justify-center h-screen items-center"    
+>    
+
+    <!-- MUSIK (DITAMBAHKAN) -->
+    <audio id="musik" src="pagikucerahku.mp3.mp3"></audio>
+
+    <div    
+      class="bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate_animated animate_backInDown m-8 w-80"    
+      id="kartu"    
+    >    
+      <h1 class="text-3xl font-bold">🎉HAPPY💐</h1>  
+      <h1 class="text-3xl text-blue-600 font-semibold mt-1">TEACHER DAY!</h1>  
+
+      <button  
+        class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full"  
+        onclick="nextPage()"  
+      >  
+        Click Here! 
+      </button>  
+    </div>   
+
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>  
+<script>  
+
+  const musik = document.getElementById("musik");   // DITAMBAHKAN
+  const kartu = document.getElementById("kartu");  
+
+  window.onload = () => {
+      kartu.style.animationDuration = "3s"
+        kartu.classList.add(
+          "animate__animated",
+          "animate__fadeInDown"
+        );
+        kartu.style.opacity = 1;
+        kartu.addEventListener("animationend", () => {
+          kartu.classList.remove("animate_animated", "animate_fadeInDown");
+        });
+      };
+
+
+  let halaman = 0;  
+  const ucapan = [  
+    { teks: "Website ini dibuat khusus untuk Ms Fida, sebagai ucapan hari guru, dan sebagi salah satu bentuk ungkapan terimakasih saya kepada Ms Fida. Selamat membaca!", tombol: "Next" },  
+    { teks: "Teruntuk guru terbaik yang sedang membaca tulisan ini, Selamat hari guru ya Ms! Terimakasih atas segala daya dan upaya yang telah Ms Fida berikan. Terimakasih atas bimbingannya, terimakasih atas nasehatnya, terimakasih atas arahannya.", tombol: "Next" },  
+    { teks: "Dan pada akhirnya, ucapan terimakasih yang pantas saya utarakan kepada Ms Fida.", tombol: "Next" },
+    { teks: "Tahun ini, adalah tahun terakhir saya bisa merayakan hari guru di sekolah Khadijah. Saat kelas 7, tidak banyak yang bisa saya lakukan di hari guru. Di kelas 8, saya diberi kesempatan melaksanakan event sebagai ucapan terimakasih untuk bapak/ibu guru semua.", tombol: "Next" }, 
+    { teks: "Dan di kelas 9 ini, di tahun terakhir saya, saya buat sebuah website sederhana yang saya persembahkan khusus untuk guru terbaik, tersabar, dan terspecial. Ms Fida.", tombol: "Next" }, 
+    { teks: "Banyak nasehat dan motivasi yang selalu saya dapatkan. Tetapi ntah mengapa, nasehat dan motivasi yang Ms berikan adalah yang paling bermakna bagi hidup saya. Nasehat serta motivasi yang selama ini Ms Fida berikan kepada saya merupakan hal yang selalu saya ingat ketika saya sedang dihadapkan dengan kebingungan,  ketidakyakinan, bahkan kadang keputusasaan.", tombol: "Next" },  
+    { teks: "Yang tidak kalah penting juga. Saya mau mengucapkan permohonan maaf yang sebesar-besarnya untuk setiap tindakan dan perkataan saya yang menyinggung hati Ms Fida. baik secara disengaja ataupun tidak disengaja, baik yang Ms ketahui maupun tidak ketahui.", tombol: "Next" },  
+    { teks: "Kadang kalau papasan saya ga sapa ataupun ga Salim, Mohon dimaafkan Ms🙂🙏🏻", tombol: "Next" },
+    { teks: "Intinya, Terimakasih ya Ms untuk setiap hal yang ga akan pernah bisa saya ungkapkan satu persatu. Setiap nasehat dan motivasi yang Ms Fida berikan, itulah yang selalu membuat saya ingin untuk terus menjadi lebih baik, hal itu juga yang akan terus menjadi pengingat bagi saya, bahwa ternyata saya punya guru sebaik Ms Fida.", tombol: "Next" },  
+    { teks: "Mohon maaf juga,  jika selama ini ada perkataan maupun tindakan saya yang kurang berkenan dihati Ms.", tombol: "Next" },
+    { teks: "Ohh ya terakhir, saya boleh minta saran ga Ms? menurut Ms Fida, di SMA nanti lebih baik saya ikut organisasi, atau fokus sama akademik saja. jujur saya lagi bingung banget sama pilihan ini😊", tombol: "Next" },  
+    { teks: "Sekian dan terimakasih🙏🏻", tombol: "Close" },
+  ];  
+
+  function nextPage() {
+
+    // === MUSIK MULAI KETIKA HALAMAN PERTAMA DIBUKA ===
+    if (halaman === 0) {
+      musik.play();
+    }
+
+    // Animasi fade out
+    kartu.classList.add("animate_animated", "animate_fadeOut");
+    
+    setTimeout(() => {
+      halaman++;
+
+      kartu.classList.remove("animate__fadeOut");
+
+      if (halaman <= ucapan.length) {
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+
+        if (halaman < ucapan.length) {
+          kartu.innerHTML = `
+            <h1 class="text-x font-semi animate_animated animate_fadeIn">${ucapan[halaman - 1].teks}</h1>
+            <button class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full animate_animated animatetada animate_delay-1s" onclick="nextPage()">
+              ${ucapan[halaman - 1].tombol}
+            </button>`;
+        } else {
+          kartu.innerHTML = `
+            <h1 class="text-x font-semi animate_animated animate_fadeIn">${ucapan[halaman - 1].teks}</h1>
+            <button class="p-2 bg-blue-700 text-white rounded mt-5 hover:bg-gray-900 transition ease-in w-full animate_animated animatetada animate_delay-1s" onclick="refresh()">
+              Tutup
+            </button>`;
+        }
+      }
+    }, 400);
+  }
+
+  function refresh() {
+
+    // === MATIKAN MUSIK KETIKA TOMBOL TUTUP DI TEKAN ===
+    musik.pause();
+    musik.currentTime = 0;
+
+    location.reload();
+  }
+
+</script>
+
+</body>
+</html>
