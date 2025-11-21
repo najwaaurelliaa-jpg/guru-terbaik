@@ -1,6 +1,23 @@
 <!DOCTYPE html>  
 <html lang="en">      
 <head>    
+  <script>
+  // FORCE animation ON even if user has Reduce Motion enabled
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: unset !important;
+        transition: unset !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  </script>
+
+  <!-- stylesheet & animate.css -->
+  <link rel="stylesheet" href="animate.css">
+</head>
     <meta charset="UTF-8" />    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
     <title>Mathience.49</title>    
@@ -8,12 +25,24 @@
     <link    
       rel="stylesheet"    
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"    
-    />    
-</head>    
+    />
+
+    <!-- ==== PAKSA ANIMASI TETAP HIDUP MESKI IPHONE REDUCE MOTION AKTIF ==== -->
+    <style>
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 1.5s !important;
+          animation-play-state: running !important;
+          transition: all 0.5s !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+</head>   
 
 <body    
     style="    
-      background-image: url(https://i.ibb.co.com/Qvs8LGgh/Gambar-Whats-App-2025-11-13-pukul-23-02-38-50fa98a1.jpg);    
+      background-image: url(https://i.ibb.co.com/hRJDsfz8/baru-Whats-App-2025-11-15-pukul-13-12-59-c90a22d3.jpg);    
       background-size: cover; 
       background-position: center;
 
@@ -28,11 +57,11 @@
       class="bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-80"    
       id="kartu"    
     >    
-      <h1 class="text-3xl font-bold">🎉HAPPY💐</h1>  
-      <h1 class="text-3xl text-blue-600 font-semibold mt-1">TEACHER DAY!</h1>  
+      <h1 class="text-3xl font-semibold">🎉HAPPY💐</h1>  
+      <h1 class="text-3xl text-blue-900 font-semibold mt-1">TEACHER DAY!</h1>  
 
       <button  
-        class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full"  
+        class="p-2 bg-blue-800 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full"  
         onclick="nextPage()"  
       >  
         Click Here! 
